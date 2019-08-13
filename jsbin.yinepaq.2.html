@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by AkumaAndoriya (http://jsbin.com/yinepaq/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="ceas functional">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Functional Clock</title>
+<style id="jsbin-css">
+* { 
+  margin: 0; padding: 0; 
+}
+html, body {
+  height: 100%;
+  font-family: 'Lexend Deca', sans-serif;
+}
+#clock {
+  text-align: center;
+  position:relative;
+  top:50%;
+  font-size: 4rem;
+  margin-top: -2rem;
+  color: white;
+}
+</style>
+</head>
+<body>
+  <div id="clock">12:13:14</div>
+<script id="jsbin-javascript">
+function colorClock() {
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+  if (hours<10) {
+  hours= '0'+hours;
+};
+  if (minutes<10) {
+  minutes= '0'+minutes;
+};
+  if (seconds<10) {
+  seconds= '0'+seconds;
+};
+  var hexColor = '#' + seconds + hours + minutes;
+var clockFace = hours+':'+minutes+':'+seconds;
+document.getElementById('clock').innerHTML = clockFace;
+  setTimeout(function() {
+    colorClock();
+  }, 1000);
+  document.body.style.fontFamily = 'Lexend Dec';
+  document.body.style.background = hexColor;
+};
+colorClock();
+</script>
+</body>
+</html>
